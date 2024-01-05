@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Drum Kit</h1>
+    <section>
+        <div class="drum-pad" id="pad1">A</div>
+        <div class="drum-pad" id="pad2">B</div>
+        <!-- Add more drum pads as needed -->
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Array of drum pad IDs
+            var drumPadIds = ['pad1', 'pad2']; // Add more IDs as needed
+
+            // Map drum pad IDs to corresponding sound files
+            var soundMap = {
+                'pad1': 'hihat.wav',
+                'pad2': 'snare.wav',
+                // Add more mappings as needed
+            };
+
+            // Add click event listeners to all drum pads
+            drumPadIds.forEach(function (padId) {
+                var drumPad = document.getElementById(padId);
+                var sound = new Audio(soundMap[padId]);
+
+                drumPad.addEventListener('click', function () {
+                    sound.play();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
